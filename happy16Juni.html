@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Nadine!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in-out;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px;
+      animation: fadeIn 3s ease-in-out;
+      color: #444;
+    }
+
+    img {
+      width: 230px;
+      border-radius: 20px;
+      margin-top: 20px;
+      border: 4px solid #ccc;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    .heart {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      transform: rotate(45deg);
+      top: -60px;
+      animation: fall 6s linear forwards;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -30px; left: 0; }
+    .heart::after { left: -30px; top: 0; }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .music-note {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1em;
+      color: #888;
+      z-index: 2;
+    }
+
+    #btnRahasia {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #073546;
+      color: white;
+      cursor: pointer;
+      animation: fadeIn 4s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      pointer-events: auto;
+    }
+
+    #btnRahasia:active {
+      transform: scale(0.95);
+      background-color: #ffff;
+    }
+
+    #pesanRahasia {
+      display: none;
+      font-size: 1.2em;
+      margin: 20px auto;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+      color: #555;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 500px;
+    }
+
+    .galeri {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .galeri img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 3px solid #ddd;
+      transition: transform 0.3s ease;
+    }
+
+    .galeri img:hover {
+      transform: scale(1.05);
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      border: 4px solid white;
+    }
+
+    .confetti {
+      width: 10px;
+      height: 10px;
+      background-color: yellow;
+      position: absolute;
+      top: -10px;
+      animation: confettiFall 4s infinite linear;
+      opacity: 0.9;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .credit {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.7em;
+      color: #888;
+      font-style: italic;
+      opacity: 0.6;
+      animation: fadeIn 2s ease-in;
+      margin-top: 60px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body onclick="aktifkan()" onmousemove="aktifkan()">
+
+  <h1>Happy Birthday!!</h1>
+  <h1>Nadine Ghaesa Putri Darmawan 🎂</h1>
+  <img src="https://raw.githubusercontent.com/MuhamadZalfa/image-zalfa/main/nadine.jpg" alt="Foto Nadine" />
+
+  <p>16-07-2007 hehehehehe &lt;3 <br>
+     In a noisy world, you are the calm.<br>
+     In a gray world, you bring color.<br>
+     Happy birthday. Keep growing into someone you're proud to be. 🥳</p>
+
+  <button id="btnRahasia" onclick="tampilkanPesan()">🎁 Tekan Khusus Nadine</button>
+
+  <div id="pesanRahasia">
+    Nadine, Thank you for coming into my life, understanding my current situation.<br>
+    Thank you for your attention, your love, your sincere feelings.<br><br>
+    Thank you for accepting all my shortcomings.<br><br>
+    I apologize for not being able to give a birthday present, because this is not a present, just a token of gratitude.<br>
+    Happy birthday, Nadine. You matter. You’re appreciated. Once again, thank you for being born ❤️
+  </div>
+
+  <div class="galeri" id="galeri">
+    <img src="https://raw.githubusercontent.com/MuhamadZalfa/foto1/main/1751648898342.jpg" onclick="tampilPopup(this)">
+    <img src="https://raw.githubusercontent.com/MuhamadZalfa/foto1/main/IMG-20250512-WA0055.jpg" onclick="tampilPopup(this)">
+    <img src="https://raw.githubusercontent.com/MuhamadZalfa/foto1/main/IMG-20250428-WA0092.jpg" onclick="tampilPopup(this)">
+  </div>
+
+  <div class="popup" id="popupGambar" onclick="tutupPopup()">
+    <img id="gambarPopup" src="">
+  </div>
+
+  <audio id="musik" loop>
+    <source src="https://raw.githubusercontent.com/MuhamadZalfa/song-fix/main/Coldplay%20-%20Fix%20You%20(Best%20part%20altered%20solo%20guitar%20w%20tour%20clips).mp3" type="audio/mp3">
+  </audio>
+
+  <div class="music-note">♪</div>
+
+  <footer class="credit">Made with ❤️ by Muhamad Zalfa</footer>
+
+  <script>
+    // Hati jatuh
+    for (let i = 0; i < 25; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDelay = (Math.random() * 5) + "s";
+      document.body.appendChild(heart);
+    }
+
+    // Confetti
+    for (let i = 0; i < 40; i++) {
+      let confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.backgroundColor = ["#fcd34d", "#34d399", "#60a5fa", "#f472b6", "#f87171"][Math.floor(Math.random() * 5)];
+      confetti.style.animationDuration = (3 + Math.random() * 2) + "s";
+      confetti.style.width = confetti.style.height = (5 + Math.random() * 10) + "px";
+      document.body.appendChild(confetti);
+    }
+
+    let sudahKlik = false;
+
+    function tampilkanPesan() {
+      document.getElementById("pesanRahasia").style.display = "block";
+      document.getElementById("galeri").style.display = "flex";
+
+      const musik = document.getElementById("musik");
+      if (!sudahKlik) {
+        musik.play().catch(err => console.log("Autoplay gagal:", err));
+        sudahKlik = true;
+      }
+    }
+
+    function tampilPopup(img) {
+      const popup = document.getElementById("popupGambar");
+      const gambar = document.getElementById("gambarPopup");
+      gambar.src = img.src;
+      popup.style.display = "flex";
+    }
+
+    function tutupPopup() {
+      document.getElementById("popupGambar").style.display = "none";
+    }
+
+    function aktifkan() {
+      document.getElementById("btnRahasia").disabled = false;
+    }
+  </script>
+
+</body>
+</html>
